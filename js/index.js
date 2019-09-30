@@ -43,8 +43,17 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 let links = document.querySelectorAll('a');
 links.forEach((link, i) => {
-  link.textContent = siteContent["nav"][`nav-item-${i + 1}`]
+  link.textContent = siteContent["nav"][`nav-item-${i + 1}`];
+  link.style.color = "green";
 });
+
+let appendedLink = document.createElement("a");
+appendedLink.textContent = "Last";
+let prependedLink = document.createElement("a");
+prependedLink.textContent = "First";
+
+links[0].parentNode.appendChild(appendedLink)
+links[0].parentNode.prepend(prependedLink)
 
 let headerText = document.querySelectorAll('.cta-text *');
 
