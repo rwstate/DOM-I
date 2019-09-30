@@ -31,6 +31,7 @@ let tenSecondTimer = function () {
         else {
             msTensLog.parentNode.classList.add("redDigit");
             clearInterval(intervalId)
+            running = false;
         }
     }, 10);
     clickToReset.addEventListener("click", function(){
@@ -43,7 +44,6 @@ let tenSecondTimer = function () {
         msTensLog.parentNode.classList.remove("redDigit");
     
     })
-    running = false;
 }
 
 clickToReset.addEventListener('click', function(){
