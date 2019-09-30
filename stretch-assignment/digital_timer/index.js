@@ -36,13 +36,7 @@ let tenSecondTimer = function () {
     }, 10);
     clickToReset.addEventListener("click", function(){
         clearInterval(intervalId)
-        sTensLog.textContent = "-";
-        sOnesLog.textContent = "-";
-        msHundredsLog.textContent = "-";
-        msTens.textContent = "-";
-        timer = 0
         msTensLog.parentNode.classList.remove("redDigit");
-    
     })
 }
 
@@ -51,7 +45,8 @@ clickToReset.addEventListener('click', function(){
     sOnesLog.textContent = "-";
     msHundredsLog.textContent = "-";
     msTens.textContent = "-";
-    timer = 0
+    timer = 0;
+    running = false;
 })
 
 
