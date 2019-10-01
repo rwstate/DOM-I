@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street\nSomewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -39,4 +39,49 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+let links = document.querySelectorAll('a');
+links.forEach((link, i) => {
+  link.textContent = siteContent["nav"][`nav-item-${i + 1}`];
+  link.style.color = "green";
+});
+
+let appendedLink = document.createElement("a");
+appendedLink.textContent = "Last";
+let prependedLink = document.createElement("a");
+prependedLink.textContent = "First";
+
+links[0].parentNode.appendChild(appendedLink)
+links[0].parentNode.prepend(prependedLink)
+
+let headerText = document.querySelectorAll('.cta-text *');
+
+headerText.forEach((el, i) => {
+  el.textContent = Object.values(siteContent["cta"])[i]
+});
+
+let headerImg = document.querySelector("#cta-img").src = siteContent["cta"]["img-src"];
+
+let main = document.querySelectorAll(".text-content *");
+
+main.forEach((el, i) => {
+  if (i < 4) {
+    el.textContent = Object.values(siteContent["main-content"])[i];
+  }
+  else {
+    el.textContent = Object.values(siteContent["main-content"])[i + 1];
+  }
+});
+
+let middleImage = document.querySelector(".middle-img").src = siteContent["main-content"]["middle-img-src"];
+
+let contactText = document.querySelectorAll(".contact *");
+
+contactText.forEach((el, i) => {
+  el.textContent = Object.values(siteContent["contact"])[i];
+});
+
+contactText[1].setAttribute('style', 'white-space: pre;');
+
+let footerText = document.querySelector('footer').textContent = siteContent["footer"]["copyright"]
